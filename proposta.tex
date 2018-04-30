@@ -3,126 +3,176 @@
 \usepackage[utf8]{inputenc} % acentuacao
 \usepackage{graphicx} % para inserir figuras
 \usepackage[T1]{fontenc}
+\usepackage{colortbl}
 
 \hypersetup{
-    hidelinks, % Remove coloração e caixas
-    unicode=true,   %Permite acentuação no bookmark
-    linktoc=all %Habilita link no nome e página do sumário
+	hidelinks, % Remove coloração e caixas
+	unicode=true,   %Permite acentuação no bookmark
+	linktoc=all %Habilita link no nome e página do sumário
 }
 
 \unidade{Centro de Desenvolvimento Tecnológico}
-\curso{Ciência da Computação}
-\nomecurso{Bacharelado em Ciência da Computação}
-\titulocurso{Bacharel em Ciência da Computação}
+\curso{Engenharia de Computação}
+\nomecurso{Bacharelado em Engenharia de Computação}
+\titulocurso{Bacharel em Engenharia de Computação}
 
-\title{Um Blabla Blablabla com Aplicações em Blablabla}
+\title{Proposta de exploração da plataforma Ethereum como base a aplicações em Fog Computing}
 
-\author{UltimoNome}{Nome Sobrenome de}
-\advisor[Prof.~Dr.]{Aguiar}{Marilton Sanchotene de}
-%\coadvisor[Prof.~Dr.]{Aguiar}{Marilton Sanchotene de}
+\author{Santos}{Gustavo Fernandes dos}
+\advisor[Prof.~Dra.]{Reiser}{Renata Hax Sander}
+\coadvisor[Prof.~Dr.]{Pilla}{Maurício}
 %\collaborator[Prof.~Dr.]{Aguiar}{Marilton Sanchotene de}
 
 \begin{document}
 
-%\renewcommand{\advisorname}{Orientadora}           %descomente caso tenhas orientadora
+\renewcommand{\advisorname}{Orientadora}           %descomente caso tenhas orientadora
 %\renewcommand{\coadvisorname}{Coorientadora}      %descomente caso tenhas co-orientadora
-
+	
 \maketitle 
 \sloppy
-
+	
 \chapter{Dados de Identificação}
-
+	
 \section{Nome do Projeto}
-Titulo do Projeto
-
+Proposta de exploração da plataforma Ethereum como base a aplicações em Fog Computing
+	
 \section{Local de Realização}
-Laboratório/Departamento/Instituto/Universidade
-
+Universidade Federal de Pelotas
+	
 \section{Responsável pelo Projeto}
-Nome do Aluno
-
-e-mail do aluno
-
+Gustavo Fernandes dos Santos
+	
+gfdsantos@inf.ufpel.edu.br
+	
 \section{Professor Orientador}
-Prof. (Nome do Professor)
-
+Prof. Renata Hax Sander Reiser
+	
 \section{Professor Co-orientador}
-Prof. (Nome do Professor)
-
+Prof. Maurício Pilla
+	
 \chapter{Sumário Executivo}
 % (NO MÁXIMO 1 PÁGINA)
-
-Apresentar aqui uma breve Introdução ao Problema que está se
-pretendendo resolver ou abordar. Além disso, nesta seção,
-apresenta(m)-se o(s) principal(is) objetivo(s) do projeto e, portanto,
-a(s) principal(is) contribuição(ções)~\citet{Moore:1979:MAI,Aguiar:2005}.
-
+	
+O principal problema da Internet das Coisas é o crescente uso intenso da comunicação entre os dispositivos e a nuvem. O modelo de Fog Computing promove trazer a nuvem para próximo aos dispositivos que realizam a coleta de dados. Através de nós, o modelo de Fog Computing cria uma camada de processamento e armazenamento na borda da rede ~\cite{Bonomi2012}. A posição de nós que fazem o intermédio entre as coisas e a nuvem reduz consideravelmente a frequência da comunicação com a nuvem e consequentemente reduz o consumo de banda.
+	
+Ethereum disponibiliza uma plataforma de computação sobre a arquitetura de blockchain ~\cite{dannen2017introducing}. Visando diferentes abordagens de Fog Computing, Ethereum é uma ferramenta que pode trazer todos os recursos necessários para a implementação do modelo de Fog Computing.
+	
+Este trabalho tem como foco o estudo da arquitetura de blockchain sobre o armazenamento de dados, a capacidade do Ethereum em realizar computações em uma arquitetura de blockchain e como estas tecnologias podem resolver problemas de Fog Computing.
+	
+	
 \chapter{Histórico e Justificativa}
 % (NO MÍNIMO 1 PÁGINA)
+	
+Internet das Coisas é um termo utilizado para designar um conjunto de equipamentos munidos de sensores capazes de formar uma interface entre o mundo físico e o mundo digital. Dispositivos na Internet das Coisas interagem através da internet, tipicamente respondendo a um servidor central - a nuvem, no qual o acesso a dados coletados através destes dispositivos é garantido sempre que a conexão entre as partes for íntegra ~\cite{minerva2015towards}.
+	
+A crescente adoção de coisas conectadas a internet exige que alguma infraestrutura dê suporte ao intenso tráfego de dados entre os dispositivos e a nuvem. Fornecer um canal de comunicação cuja latência entre as partes não afete o correto funcionamento do sistema, tampouco afete os demais dispositivos que utilizam o mesmo canal de comunicação, é um desafio ~\cite{rosa2017exehda}. Outra limitação do uso de um servidor central é a possibilidade de falha deste servidor. Uma falha em um servidor central compromete o sistema de forma catastrófica, para tal existem heurísticas para assegurar que o sistema continue a funcionar ~\cite{coulouris2005distributed}.
 
-Nesta seção, apresenta-se um breve histórico da área de concentração
-do Projeto, partindo do tema mais abrangente até chegar
-especificamente no assunto do Projeto. Além disso, apresenta-se a
-justificativa para a realização do trabalho, sua importância acadêmica
-ou para comunidade e grau de inovação. Poderá também apresentar as
-distinções entre o trabalho atual e outros trabalhos já
-realizados~\cite{vonNeumann:1966:TSR}.
-
+Assegurar que um contexto seja mantido entre os dispositivos e o processamento e armazenamento de dados sem que o sistema seja comprometido de alguma forma, é um desafio. Para tal, é interessante o estudo de diferentes técnicas para garantir a consistência das informações, bem como a continuidade do sistema. Fog Computing tenta resolver este problema trazendo a computação para as bordas da rede através de nós, chamados de nós-fog ~\cite{Bonomi2012}.
+	
+Segundo \cite{Bonomi2012}, a abordagem do Fog Computing tem a característica de reduzir o consumo de banda na comunicação entre dispositivos e a nuvem, no qual torna-se muito interessante o seu uso quando dados são coletados nas bordas da rede, por exemplo, carros, aviões, rodovias, etc., quando dispositivos estão espalhados por uma grande área geográfica e quando é necessário agir sobre um conjunto de dados em um tempo menor que o necessário caso esta ação seja executada por um serviço em nuvem. Neste cenário, qualquer dispositivo pode ser um nó-fog.
+	
+Sistemas baseados em Fog Computing podem ser distribuídos ao longo da rede, promovendo maior resiliência para a entrega do serviço. Visando a definição de uma camada abaixo para promover este modelo de computação distribuída, garantir a consistência dos dados e produzir resultados de processamento válidos, uma arquitetura de blockchain pode ser utilizada.
+	
+Blockchain é um banco de dados distribuído onde são armazenados registros de dados ~\cite{Juels2016}. A grande diferença entre o modelo de blockchain e o armazenamento de dados centralizado é o ponto de falha. Um servidor de armazenamento de dados possui um único ponto de falha, que é justamente o servidor. Já em uma arquitetura de blockchain, cada nó contém uma cópia exata de todos os blocos, o que previne falhas no sistema, manipulação de dados e tentativas em corromper o sistema ~\cite{Juels2016}.
+	
+Um sistema de Fog Computing baseado em blockchain pode manter a consistência dos dados e ser tolerante a falhas, pois se um ou mais nós forem comprometidos, a entrega do serviço que o sistema dispõe não será interrompida. Embora a abordagem do uso da arquitetura de blockchain seja interessante para o armazenamento de registros de dados, é necessário que ocorra alguma espécie de computação em cada nó do modelo de Fog Computing, para tal a plataforma do Ethereum surge como opção.
+    
+Ethereum é uma plataforma descentralizada que executa contratos inteligentes. Chamados de \textit{smart contracts}, os programas que executam na plataforma do Ethereum não podem ser parados, não podem ser censurados, não sofrem com interferências de terceiros e não podem ser fraudados ~\cite{wood2014ethereum}, entretanto um contrato tem um limite de instruções nos quais podem ser executadas, este limite é dado pelo \textit{gas}, uma medida de consumo de energia por instrução. Ethereum possui uma estrutura de blockchain onde todos os programas são armazenados e é o local onde são executados. Diferentemente do Bitcoin, Ethereum provê uma plataforma completa para realização de computações e o consenso da rede é mantido via prova de participação ~\cite{buterin2014next}. 
+	
+Além de ser uma moeda virtual, onde o seu valor é convertido em unidades de computação virtual, a plataforma do Ethereum disponibiliza um ambiente para o desenvolvimento de aplicações baseadas em blockchain ~\cite{wood2014ethereum}. Estas aplicações podem ser conectadas a rede principal do Ethereum, onde são necessários \textit{tokens} reais do Ethereum, chamados de Ether, para a realização de computações ou, então, podem ser executadas em um ambiente privado customizável.
+	
+Visto que o modelo de Fog Computing exige que nós-fog sejam postos próximos aos dispositivos que realizam a comunicação entre o mundo real e o digital e, ainda, que estes nós realizam processamento e armazenamento de dados, é interessante que um estudo sobre a viabilidade do uso do Ethereum como base para o modelo de Fog Computing, bem como o desenvolvimento de uma prova de conceito.
+	
 \chapter{Objetivos e Metas}
-Nesta seção, apresentam-se o objetivo Geral e os objetivos Específicos
-do Projeto. Os objetivos não devem ser confundidos com as
-atividades. Para a definição das atividades, deve-se partir dos
-objetivos determinados nesta seção. O objetivo Geral do Projeto
-necessariamente deve ser algum resultado prático (implementação) ou
-teórico (modelos formais ou especificações ou validações) produto da
-pesquisa realizada no período de Projeto de Conclusão de Curso. Assim
-como os objetivos específicos, que são considerados como subprodutos
-do Objetivo Geral.
 
+O objetivo geral deste trabalho é o desenvolvimento de uma aplicação na plataforma Ethereum com suporte a Fog Computing. Para tal existem objetivos intermediários, como a identificação de aplicações que poderiam se beneficiar dos recursos da plataforma Ethereum e a modelagem de uma estrutura de blockchain onde o equilíbrio entre os recursos necessários para mineração e disponibilidade da aplicação.
+
+Metas deste trabalho envolvem a realização de uma revisão técnica sobre a plataforma Ethereum, a identificação das melhores formas de explorar os recursos disponibilizados, o desenvolvimento de uma prova de conceito que valida as ideias postas neste trabalho e a publicação de artigos para fomentar a discussão sobre arquiteturas em blockchain e suas aplicações.
+	
 \chapter{Metodologia}
-Nesta seção, apresenta-se a metodologia proposta para o
-desenvolvimento do Projeto. O proponente do Projeto deve descrever
-superficialmente as atividades necessárias para a conclusão dos
-objetivos propostos, normalmente utilizando um parágrafo para cada
-objetivo.
-
+A metodologia deste trabalho consiste nos seguintes tópicos:
+	
+\begin{itemize}
+	\item \textbf{Revisão bibliográfica.} Nesta atividade será feita uma revisão sistemática de trabalhos publicados na área de interesse, um estudo sobre o estado da arte de arquiteturas de blockchain, quais problemas são atualmente resolvidos através desta arquitetura e quais os desafios que existem. Será realizado um estudo técnico sobre a plataforma Ethereum e como esta plataforma pode ser utilizada para resolver problemas de Fog Computing.
+	
+	\item \textbf{Especificação.} Aqui será realizado a especificação de um problema em Fog Computing que se beneficia em ter como base uma arquitetura de blockchain..
+	
+	\item \textbf{Modelagem.} Será definido um modelo que representa uma solução de um problema em Fog Computing. O modelo definido será apoiado principalmente, mas não somente, em características da plataforma Ethereum.
+	
+	\item \textbf{Implementação.} Etapa de prototipação da prova de conceito. 
+	
+	\item \textbf{Validação.} A etapa de validação consiste em avaliar se a solução desenvolvida é correta.
+\end{itemize}
+	
 \chapter{Plano de Atividades e Cronograma}
 % (PARA 1 ANO)
 
-Nesta seção, apresenta-se a relação numerada de atividades (de estudo,
-modelagem, especificação, implementação ou validação) que deverão ser
-realizadas durante o Projeto de Conclusão de Curso. Dentre estas
-atividades, constam como obrigatórias as atividades de Escrita da
-Monografia, Entrega das Monografias Intermediária e Final e
-Apresentação Final (Banca), nos meses definidos pelo professor
-responsável do Projeto de Conclusão de Curso. Pode constar,
-opcionalmente, atividades para publicação de trabalhos e apresentação
-em eventos.
-
+	\begin{table}[h!]
+		\centering
+		\label{my-label}
+		\begin{tabular}{llllllllll}
+		 & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\
+		A1 & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  &  &  &  \\
+		A2 &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  &  \\
+		A3 &  &  & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  &  \\
+		A4 &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  \\
+		A5 &  &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  \\
+		A6 &  &  &  &  &  &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} \\
+		A7 &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  \\
+		A8 &  &  &  & \cellcolor[HTML]{9B9B9B} &  &  &  &  &  \\
+		A9 &  &  &  & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} & \cellcolor[HTML]{9B9B9B} &  \\
+		A10 &  &  &  &  &  &  &  & \cellcolor[HTML]{9B9B9B} &  \\
+		A11 &  &  &  &  &  &  &  &  & \cellcolor[HTML]{9B9B9B}
+		\end{tabular}
+		\end{table}
+	
+	A1: Escrita da proposta de TCC.
+	
+	A2: Revisão bibliográfica.
+	
+	A3: Especificação.
+	
+	A4: Modelagem.
+	
+	A5: Implementação.
+	
+	A6: Validação.
+	
+	A7: Escrita da monografia parcial.
+	
+	A8: Entrega da monografia parcial.
+	
+	A9: Escrita da monografia.
+	
+	A10: Entrega da monografia para a banca.
+	
+	A11: Apresentação para a banca.
+	
+	
 \bibliography{bibliografia}
 \bibliographystyle{abnt}
-
+	
 \chapter{Assinaturas}
 \vspace{2cm}
-
+	
 \begin{center}
 \rule{8cm}{.3mm}
 \medskip
-
-	Coloque aqui o seu nome\\
+	
+	Gustavo Fernandes dos Santos\\
 	Proponente
-
+	
 \end{center}
-
+	
 \vspace{4cm}
-
+	
 \begin{center}
 \rule{8cm}{.3mm}
 \medskip
-
-	Coloque aqui o nome do professor\\
+	
+	Renata Hax Sander Reiser\\
 	Prof. Orientador
-
+	
 \end{center}
 \end{document}
-
+	

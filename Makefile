@@ -1,7 +1,7 @@
 LATEX = pdflatex
 BIBTEX = bibtex
 RM = rm -f
-FILE = tcc
+FILE = proposta
 
 all:	
 		$(LATEX) $(FILE)
